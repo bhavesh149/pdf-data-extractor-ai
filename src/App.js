@@ -31,7 +31,8 @@ const App = () => {
   useEffect(() => {
     const fetchPdfData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/pdf_data");
+        // http://54.167.21.48/pdf_data
+        const response = await fetch("http://54.167.21.48/pdf_data");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -66,7 +67,7 @@ const App = () => {
         assistant_id_: assistantId || "your_default_assistant_id_here",
       });
 
-      const response = await fetch(`http://localhost:8000/ai?${params}`, {
+      const response = await fetch(`http://54.167.21.48/ai?${params}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -116,7 +117,7 @@ const App = () => {
     formData.append("file", pdfFile);
 
     try {
-      const response = await fetch("http://localhost:8000/pdf", {
+      const response = await fetch("http://54.167.21.48/pdf", {
         method: "POST",
         body: formData,
       });

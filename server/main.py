@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 #################################   Enter API Key Here  ################################################################
-api_key = '' ###
+api_key = 'sk-proj-BoaMiHCnSbCeFN3gGpHiT3BlbkFJhOpPrblzIxCwNGdHdp6y' ###
 ########################################################################################################################
 
 client = OpenAI(api_key=api_key)
@@ -80,6 +80,11 @@ def get_random_questions_and_answers(json_data, num_questions=3):
     return res2
 
 ############################    Assistant   ############################################################################
+
+@app.get('/')
+async def myFun():
+    return {"Hey from fastapi!"}
+
 @app.post('/ai')
 async def assit(input_: str, assistant_id_: str):
     if any(input_.strip().lower().startswith(word) for word in ["hi", "hey", "hello","?"]):
